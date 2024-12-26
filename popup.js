@@ -1,20 +1,28 @@
-function ednToJson(edn) {
+import { parseEDN, toEDN } from './edn-parser.js';
+
+function ednToJson(ednString) {
   try {
-    // Basic EDN parsing (replace with a more robust solution if needed)
-    const parsedEdn = eval('(' + edn + ')');
-    return JSON.stringify(parsedEdn);
+    if (!ednString.trim()) {
+      return '';
+    }
+    const parsed = parseEDN(ednString);
+    return JSON.stringify(parsed);
   } catch (error) {
-    return 'Invalid EDN';
+    console.error('EDN parsing error:', error);
+    return `Error: ${error.message}`;
   }
 }
 
-function jsonToEdn(json) {
+function jsonToEdn(jsonString) {
   try {
-    const parsedJson = JSON.parse(json);
-    // Basic EDN stringification (replace with a more robust solution if needed)
-    return JSON.stringify(parsedJson).replace(/"([^"]+)":/g, '$1: ');
+    if (!jsonString.trim()) {
+      return '';
+    }
+    const parsedJson = JSON.parse(jsonString);
+    return toEDN(parsedJson);
   } catch (error) {
-    return 'Invalid JSON';
+    console.error('JSON parsing error:', error);
+    return `Error: ${error.message}`;
   }
 }
 
@@ -28,18 +36,29 @@ function prettyPrint(json) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded event fired');
   const ednInput = document.getElementById('ednInput');
   const jsonOutput = document.getElementById('jsonOutput');
+  
+  if (!ednInput) {
+    console.error('Could not find element with ID "ednInput"');
+  }
+  if (!jsonOutput) {
+    console.error('Could not find element with ID "jsonOutput"');
+  }
 
   ednInput.addEventListener('input', function() {
+    console.log('Input detected');
     const edn = ednInput.value;
+    console.log('EDN input:', edn);
     const json = ednToJson(edn);
+    console.log('JSON output:', json);
     jsonOutput.value = prettyPrint(json);
   });
 
   jsonOutput.addEventListener('input', function() {
     const json = jsonOutput.value;
     const edn = jsonToEdn(json);
-    ednInput.value = prettyPrint(edn);
+    ednInput.value = edn;
   });
 });

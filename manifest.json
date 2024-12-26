@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "EDN/JSON Converter",
+  "name": "EDN to JSON Converter",
   "version": "1.0",
-  "description": "Convert between EDN and JSON",
+  "description": "Convert between EDN and JSON formats",
   "action": {
-    "default_popup": "popup.html",
-    "default_title": "EDN/JSON Converter"
+    "default_popup": "popup.html"
   },
   "permissions": [
-    "activeTab"
+    "clipboardRead",
+    "clipboardWrite"
   ]
 }
