@@ -61,4 +61,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const edn = jsonToEdn(json);
     ednInput.value = edn;
   });
+
+  // Add copy button functionality
+  document.querySelectorAll('.copy-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const textArea = document.getElementById(targetId);
+      navigator.clipboard.writeText(textArea.value).then(() => {
+        const originalText = this.textContent;
+        this.textContent = 'Copied!';
+        setTimeout(() => {
+          this.textContent = originalText;
+        }, 1500);
+      }).catch(err => {
+        console.error('Failed to copy text:', err);
+      });
+    });
+  });
 });

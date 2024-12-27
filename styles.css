@@ -42,3 +42,23 @@ textarea {
   font-family: monospace;
   font-size: 1em;
 }
+
+.input-group {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.copy-button:hover {
+  background-color: #e0e0e0;
+}
