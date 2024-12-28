@@ -1,7 +1,6 @@
 // Simple EDN parser for basic cases
 export function parseEDN(ednString) {
-  // Remove whitespace
-  ednString = ednString.trim();
+  ednString = (ednString || '').trim();
   
   // Handle empty input
   if (!ednString) return null;
@@ -120,7 +119,7 @@ export function toEDN(obj) {
   if (obj === null) return 'nil';
   if (typeof obj === 'boolean') return obj.toString();
   if (typeof obj === 'number') return obj.toString();
-  if (typeof obj === 'string') return `"${obj}"`;
+  if (typeof obj === 'string') return obj;
   
   if (Array.isArray(obj)) {
     return `[${obj.map(toEDN).join(' ')}]`;

@@ -3,17 +3,23 @@
 <head>
   <title>EDN to JSON Converter</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <link rel="stylesheet" href="lib/theme/monokai.css">
+  <script src="lib/codemirror.js"></script>
+  <script src="lib/mode/xml/xml.js"></script>
+  <script src="lib/mode/javascript/javascript.js"></script>
+  <script src="lib/mode/clojure/clojure.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="input-group">
       <label for="ednInput">EDN:</label>
-      <textarea id="ednInput" placeholder="Enter EDN here..."></textarea>
+      <textarea id="ednInput" class="editor" placeholder="Enter EDN here..."></textarea>
       <button class="copy-button" data-target="ednInput">Copy</button>
     </div>
     <div class="input-group">
       <label for="jsonOutput">JSON:</label>
-      <textarea id="jsonOutput" placeholder="JSON output will appear here..."></textarea>
+      <textarea id="jsonOutput" class="editor" placeholder="JSON output will appear here..."></textarea>
       <button class="copy-button" data-target="jsonOutput">Copy</button>
     </div>
   </div>

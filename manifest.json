@@ -9,5 +9,12 @@
   "permissions": [
     "clipboardRead",
     "clipboardWrite"
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "web_accessible_resources": [{
+    "resources": ["/lib/*"],
+    "matches": ["<all_urls>"]
+  }]
 }
