@@ -81,8 +81,6 @@ function formatEDN(obj, indent = 0) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOMContentLoaded event fired');
-  
   const inputEditor = CodeMirror.fromTextArea(document.getElementById('ednInput'), {
     mode: "clojure",
     lineNumbers: true,
