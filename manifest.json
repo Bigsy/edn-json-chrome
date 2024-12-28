@@ -1,4 +1,9 @@
 {
+  "icons": {
+    "16": "icons/edn16.png",
+    "48": "icons/edn48.png", 
+    "128": "icons/edn128.png"
+  },
   "manifest_version": 3,
   "name": "EDN to JSON Converter",
   "version": "1.0",
