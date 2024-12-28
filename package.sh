@@ -13,6 +13,8 @@ zip -r edn-json-converter.zip \
     popup.html \
     popup.js \
     styles.css \
-    edn-parser.js
+    edn-parser.js \
+    icons/ \
+    lib/
 
 echo "Done! Created edn-json-converter.zip"
