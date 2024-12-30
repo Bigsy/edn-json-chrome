@@ -5,7 +5,7 @@
     "128": "icons/edn128.png"
   },
   "manifest_version": 3,
-  "name": "EDN to JSON Converter",
+  "name": "EDN JSON Converter",
   "version": "1.0",
   "description": "Convert between EDN and JSON formats",
   "action": {
