@@ -12,7 +12,6 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "clipboardRead",
     "clipboardWrite"
   ],
   "content_security_policy": {
